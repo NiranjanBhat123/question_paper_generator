@@ -1,0 +1,94 @@
+<!-- views/questionPaper.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+   
+<head>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat:wght@200;300;400;500;600;700&family=Poppins:wght@200;300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&family=Yatra+One&display=swap');
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #F0F8FF;
+      margin: 0;
+      padding: 0;
+    }
+
+    .question-paper {
+        
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+     
+    }
+
+    .question-list {
+       
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .question {
+        
+      background-color: #f9f9f9;
+      margin-bottom: 20px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 1rem;
+    }
+
+    .question h3 {
+        font-weight: 400;
+      color: #333;
+    }
+
+    .difficulty {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-weight: 400;
+    }
+
+    .easy {
+      background-color: #5cb85c;
+      color: #fff;
+    }
+
+    .medium {
+      background-color: #f0ad4e;
+      color: #fff;
+    }
+
+    .hard {
+      background-color: #d9534f;
+      color: #fff;
+    }
+
+    .marks {
+      color: #d9534f;
+      font-weight: 400;
+    }
+  </style>
+</head>
+<body>
+  <div class="question-paper">
+    <h1 style="color: #333; text-align: center;">Question Paper</h1>
+    
+    <ul class="question-list">
+      <% questionPaper.forEach(question => { %>
+        <li class="question">
+          <h3><%= question.question %> ?</h3>
+          <p><span class="difficulty <%= question.difficulty.toLowerCase() %>"><%= question.difficulty %></span></p>
+          <p class="marks" style="text-align: right;"> <%= question.marks %> marks</p>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
+
+  <!-- Log question data to console -->
+  <script>
+    console.log('Question Paper Data:', JSON.stringify(questionPaper));
+  </script>
+</body>
+</html>
