@@ -1,4 +1,4 @@
-// questionPaperGenerator.js
+
 const questionStore = require("./questionStore");
 
 function generateQuestionPaper(totalMarks, distribution) {
@@ -9,14 +9,16 @@ function generateQuestionPaper(totalMarks, distribution) {
     );
     const questionPaper = [];
 
-    for (const [difficulty, percentage] of Object.entries(questionDistribution)) {
+    for (const [difficulty, percentage] of Object.entries(
+      questionDistribution
+    )) {
       const questions = selectQuestions(difficulty, totalMarks, percentage);
       questionPaper.push(...questions);
     }
 
     return questionPaper;
   } catch (error) {
-    console.error("Error in generateQuestionPaper:", error.message);
+    console.error("Error in generating Question Paper:", error.message);
     throw error;
   }
 }
@@ -26,7 +28,7 @@ function calculateQuestionDistribution(totalMarks, distribution) {
     (acc, percentage) => acc + parseInt(percentage || 0, 10),
     0
   );
-
+    //handling any error in percentage
   if (totalPercentage !== 100) {
     throw new Error("Invalid distribution: Total percentage must be 100");
   }
@@ -38,7 +40,7 @@ function calculateQuestionDistribution(totalMarks, distribution) {
       continue;
     }
 
-    questionDistribution[key] = (parseInt(value || 0, 10) / 100);
+    questionDistribution[key] = parseInt(value || 0, 10) / 100;
   }
 
   return questionDistribution;
@@ -77,9 +79,6 @@ function selectQuestions(difficulty, totalMarks, percentage, topic) {
 
     currentIndex++;
   }
-
-  console.log("Selected Questions:", selectedQuestions);
-
   return selectedQuestions;
 }
 
