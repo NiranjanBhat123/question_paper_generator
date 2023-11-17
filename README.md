@@ -1,7 +1,8 @@
 # Question Paper Generator
 
 This is a simple Node.js application for generating question papers based on difficulty levels and total marks. The application allows users to specify the total marks and the distribution of marks across different difficulty levels (Easy, Medium, Hard).
-
+# Demo
+https://github.com/NiranjanBhat123/question_paper_generator/assets/111105882/460d5136-5204-47aa-8cb1-4e6df492f370
 Features
 
 * Modular and extensible codebase.
@@ -11,6 +12,10 @@ Features
 
 
 # Steps to start the project
+
+
+
+
 * clone the repo
 * navigate to project dir
 * install dependencies(npm)
